@@ -21,7 +21,7 @@ Point = 3
 Central_Planet    -0.0002082666187439927 -0.0003196367856163424 0.0
 First_Planet      1.0001040770593717 0.0001598183928115413 0.0
 Second_Planet     -0.9998958104406274 0.00015981839280480113 0.0
-"""
+```
 
  - The initial 3 indicates the number of particles (always 3 in a three-body problem).
  - Each "Point" refers to a specific timestep.
