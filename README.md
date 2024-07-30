@@ -1,5 +1,5 @@
 # Three_Body_Problem_Code
-This repository contains the code used for my summer project on the three-body problem, which resulted in the plots published on [my reserach website](https://henry-yip.github.io/tagsbycontent/#research).
+This repository contains the code used for my summer project on the three-body problem, which resulted in the plots published on [my research website](https://henry-yip.github.io/tagsbycontent/#research).
 References and descriptions are embedded within the code itself. For any inquiries, please do not hesitate to email me.
 
 # Important Convention
