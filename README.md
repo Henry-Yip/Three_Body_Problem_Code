@@ -4,7 +4,8 @@ References and descriptions are embedded within the code itself. For any inquiri
 
 # Important Convention
 The xyz files required in most of the provided codes require the below format: 
-"""
+
+```plaintext
 3
 Point = 1
 Central_Planet    -6.942220069422201e-05 -0.00010654559946727201 0.0
