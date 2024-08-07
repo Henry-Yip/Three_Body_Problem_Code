@@ -62,7 +62,7 @@ def to_shape_sphere(x1, x2, x3):
     
     # Convering to Jacobi Coordinates
     z1 = (x3 - x2) / np.sqrt(2)
-    z2 = np.sqrt(3/2) * (x1 - (x2 + x3) / 2)
+    z2 = np.sqrt(2/3) * (x1 - (x2 + x3) / 2)
     
     # Applying the Hopf map
     u1 = np.linalg.norm(z1)**2 - np.linalg.norm(z2)**2
