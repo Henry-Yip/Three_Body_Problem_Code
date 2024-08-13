@@ -26,3 +26,6 @@ Second_Planet     -0.9998958104406274 0.00015981839280480113 0.0
  - The initial 3 indicates the number of particles (always 3 in a three-body problem).
  - Each "Point" refers to a specific timestep.
  - The subsequent lines provide the coordinates corresponding to the positions of the particles at each timestep.
+
+# Acknowledgements
+I would like to express my gratitude to Dr. Jenni Smillie for generously taking the time to supervise this project.
