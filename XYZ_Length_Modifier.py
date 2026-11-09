@@ -4,7 +4,7 @@ by user) and writes them to an output file.
 
 The format of the XYZ file can be seen in my repository. 
 
-Author: Henry Yip/DrOreilleNehCinq
+Author: Henry Yip
 """
 
 # Need to be an integer

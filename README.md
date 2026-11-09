@@ -22,7 +22,7 @@ The code was tested with Python 3.13. Install the packages with `pip install -r 
 | Table 1 of the paper | `python reproduce_table1.py` | 1 minute |
 | *g*, *h*, *p* and *η* of the three orbit types, and the semi-major axis of the planetary orbit | `python fixed_centres.py` | 30 seconds |
 | The same, and save the three orbits as XYZ files | `python fixed_centres.py --xyz` | 30 seconds |
-| *p*, *η* and *e* from a saved orbit, using finite differences as in the textbook verification (the time between saved points is 0.01) | `python Textbook_Verfication_e_value.py` | seconds |
+| *p*, *η* and *e* from a saved orbit, using finite differences as in the textbook verification (the time between saved points is 0.01) | `python Textbook_Verification_e_value.py` | seconds |
 | Save an equal-mass orbit as an XYZ file, for example the figure-eight | `python three_body.py 0.347111 0.532728 70000 0.0001 figure_8.xyz --every 10` | seconds |
 | Plot an XYZ file on the shape sphere | `python Shape_Sphere_Plotter.py` | seconds |
 | Prolate spheroidal coordinates of one point | `python Prolate_Coordinates_Finder.py` | seconds |
