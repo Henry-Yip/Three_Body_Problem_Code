@@ -3,6 +3,13 @@ This repository contains the code for my summer project on the three-body proble
 
 > H. Yip and J. M. Smillie, "An Analysis of the Restricted Euler Problem Using Symplectic Integrators", *Edinburgh Student Journal of Science* **1**(3), 2025, [doi:10.2218/esjs.10064](https://doi.org/10.2218/esjs.10064).
 
+<p align="center">
+  <img src="Animation/Fixed_Centers/Planetary_Orbit_Animation.gif" width="32%" alt="Animation of a planetary orbit around two fixed centres">
+  <img src="Animation/Fixed_Centers/Lemniscate_Orbit_Animation.gif" width="32%" alt="Animation of a lemniscate orbit around two fixed centres">
+  <img src="Animation/Fixed_Centers/Satellite_Orbit_Animation.gif" width="32%" alt="Animation of a satellite orbit around one of two fixed centres">
+</p>
+<p align="center"><em>Planetary, lemniscate and satellite orbits in the problem of two fixed centres.</em></p>
+
 The notes and plots from the project are on [my research page](https://henry-yip.github.io/research/). For any inquiries, please do not hesitate to email me.
 
 The integrator in this repository was rewritten in 2026 from the equations in the paper. The version I ran in 2024 was built on modules from a university computing course, which is why it was not here when the paper appeared. The rewrite reproduces the 2024 results, and the places where those results differ from the printed paper are listed below.
@@ -20,8 +27,29 @@ The code was tested with Python 3.13. Install the packages with `pip install -r 
 | Plot an XYZ file on the shape sphere | `python Shape_Sphere_Plotter.py` | seconds |
 | Prolate spheroidal coordinates of one point | `python Prolate_Coordinates_Finder.py` | seconds |
 | Keep the first N timesteps of an XYZ file | `python XYZ_Length_Modifier.py` | seconds |
+| The figures in this README | `python make_figures.py` | 2 minutes |
 
-`Animation/Fixed_Centers` holds animations of the three orbit types.
+# Figures
+
+## Periodic three-body orbits
+![Paths of three equal masses over one period of the Figure-8, Moth I and Bumblebee orbits](figures/periodic_orbits.png)
+
+The paths of the three equal masses over one period of three of the orbits in Table 1, integrated with the Neri method at a step size of 0.0001. The bodies start at the dots. In the Figure-8 all three follow the same curve, so only one colour shows. After one period every body is within 0.003 of where it started.
+
+## Comparison of the integrators
+![Energy deviation against step size for the Neri, Ruth, Verlet and Euler methods](figures/convergence.png)
+
+The energy deviation |*E*max − *E*min| / |*E*0| of each method on the Moth I orbit over 10 time units, for six step sizes.
+
+## Orbit types
+![Regions of the plane of g and h occupied by satellite, lemniscate and planetary orbits](figures/orbit_types.png)
+
+Where the three orbit types lie in terms of the two conserved quantities, for unit masses and *b* = 1. The solid lines follow from the separated equations for *R* and *σ*, and the dots mark the three orbits below. Orbits between the paper's cut at *g* = 1 and the line *g* = 2 − |*h*| are lemniscates.
+
+## The planetary orbit
+![The planetary orbit between two confocal ellipses, and R plotted against time](figures/planetary_orbit.png)
+
+The planetary orbit over 120 time units. It moves in a ring between the ellipses *R* = 1.80 and *R* = 3.39 rather than around one closed ellipse, and *a* is the midpoint of the range of *R*.
 
 # Initial conditions
 For the problem of two fixed centres, the centres have unit mass and sit at (*x*, *z*) = (0, 1) and (0, −1), with *G* = 1.
