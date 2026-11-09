@@ -1,18 +1,30 @@
 """
 This code is based on the book Integrable Systems in Celestial Mechanics, Chapter 3. 
-We are finding the value of e,  given sigma and R (how to find sigma and R are shown in another code in my repository). 
-The intermediate values, c1 and c2, p and a are shown also.  
+We are finding p, eta and e for an orbit saved by "python fixed_centres.py --xyz".
+The moving body must be the first body in each frame, and the centres must have unit mass and lie at z = 1 and z = -1.
+The intermediate values, C1 and C2, are shown also.
 
 Author: Henry Yip
 """
 
 import numpy as np
 
+Input_File_Name = input("Name of input file: ")
+dt = float(input("Time between saved points: "))
+
 R_list = []
 sigma_list = []
-time_steps = 100
-dt = 0.001
-E = -0.5
+
+with open(Input_File_Name, 'r') as file:
+    lines = file.read().strip().split('\n')
+
+for base_index in range(2, len(lines), 5):
+    coords = lines[base_index].split()[1:]
+    x, z = float(coords[0]), float(coords[2])
+    to_upper = np.hypot(x, z - 1)
+    to_lower = np.hypot(x, z + 1)
+    R_list.append((to_upper + to_lower)/2)
+    sigma_list.append(np.arccos(np.clip((to_lower - to_upper)/2, -1, 1)))
 
 def calculate_c1(R_list, sigma_list, time_steps):
      b = 1
@@ -103,21 +115,22 @@ C2_list, term1_list, term2_list, term3_list = calculate_c2(R_list, sigma_list, d
 C1_list = calculate_c1(R_list, sigma_list, dt)
 
 C2 = np.mean(C2_list[:10])
-C1 =np.mean(C1_list[:10])
-print("C2 Mean is", np.mean(C2_list[:10]))
-print("C1 Mean is", np.mean(C1_list[:10]))
+C1 = np.mean(C1_list[:10])
+E = np.mean(term3_list[:10])  # term3 is the total energy of the moving body
+print("C2 Mean is", C2)
+print("C1 Mean is", C1)
+print("The energy is", E)
 
+# C2 is the constant N in the book and g in the paper.
+p = abs(C2)
+print("The value of p is", p)
+print("The value of eta is", 1/p)
 
 if C2 > 0:
-    C = np.sqrt(2*C2)
-    p = C**2 / 2
     a = -1/E
     e = np.sqrt(1 - p/a)
+    print("The value of a is", a)
     print("The value of e is", e)
 else:
-    C = np.sqrt(2*C1)
-    p = C**2 / 2
-    a = -1/E
-    e = np.sqrt(1 - p/a)
-    print("The value of e is", e)
+    print("C2 is negative (a satellite orbit), so C = sqrt(2*C2) is not real and e is not defined here.")
     

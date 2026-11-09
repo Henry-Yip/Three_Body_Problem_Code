@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Need to end in .xyz
-Input_File_Name = str(input("Number of input file: "))
+Input_File_Name = str(input("Name of input file: "))
 
 # Plotting every Nth point to reduce computational time
 Interval = int(input("Enter the interval: "))

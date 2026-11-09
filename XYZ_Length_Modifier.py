@@ -11,10 +11,10 @@ Author: Henry Yip/DrOreilleNehCinq
 Num_required = int(input("Number of timesteps you want to extract: "))
 
 # Need to end in .xyz
-Input_File_Name = str(input("Number of input file: "))
+Input_File_Name = str(input("Name of input file: "))
 
 # Need to end in .xyz
-Output_File_Name = str(input("Number of output file: "))
+Output_File_Name = str(input("Name of output file: "))
 
 def extract_first_N_terms(input_file, output_file):
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
@@ -31,7 +31,7 @@ def extract_first_N_terms(input_file, output_file):
                 point_line = infile.readline().strip()
                 outfile.write(point_line + '\n')
 
-                # Read the Planets Coordinates (Position and Velocity)
+                # Read the Planets Coordinates (Position)
                 for _ in range(int(num_planets)):
                     atom_line = infile.readline().strip()
                     outfile.write(atom_line + '\n')

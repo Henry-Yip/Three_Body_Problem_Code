@@ -24,14 +24,9 @@ def calculate_sigma(x, z):
     
 sigma = calculate_sigma(x,z)
 
-if z != 0:
-     R = z/(math.cos(sigma))
-else:
-     sin_sigma = math.sin(sigma)
-
-     R_squared = (x/sin_sigma)**2+1
-
-     R = math.sqrt(R_squared)
+# R is the mean of the distances to the two centres, at z = 1 and z = -1.
+# Unlike R = z/cos(sigma), this stays accurate when z is very small.
+R = (math.hypot(x, z - 1) + math.hypot(x, z + 1))/2
 
 print(f"The value of R is: {R}")
 print(f"The value of σ is: {sigma}")
